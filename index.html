@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Alabama | Future of Systems Engineering</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0a192f;
+            --light-navy: #112240;
+            --gold: #ffcc33;
+            --white: #e6f1ff;
+        }
+        body {
+            background-color: var(--navy);
+            color: var(--white);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            scroll-behavior: smooth;
+        }
+        .gold-glow {
+            text-shadow: 0 0 10px rgba(255, 204, 51, 0.5);
+        }
+        .card {
+            background-color: var(--light-navy);
+            border: 1px solid rgba(255, 204, 51, 0.1);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -15px rgba(255, 204, 51, 0.3);
+        }
+        .btn-gold {
+            background-color: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .btn-gold:hover {
+            background-color: rgba(255, 204, 51, 0.1);
+            box-shadow: 0 0 15px rgba(255, 204, 51, 0.2);
+        }
+        .gradient-line {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        /* Custom Audio Player Styling */
+        audio {
+            width: 100%;
+            height: 40px;
+            filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) invert(12%);
+            border-radius: 8px;
+        }
+        .podcast-box {
+            background: rgba(17, 34, 64, 0.6);
+            backdrop-filter: blur(10px);
+            border-left: 4px solid var(--gold);
+        }
+    </style>
+</head>
+<body class="leading-relaxed">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-[#0a192f]/90 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-[#ffcc33] tracking-tighter">
+                QUANTUM<span class="text-white font-light">ALABAMA</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest">
+                <a href="#about" class="hover:text-[#ffcc33] transition">About</a>
+                <a href="#concepts" class="hover:text-[#ffcc33] transition">Concepts</a>
+                <a href="#applications" class="hover:text-[#ffcc33] transition">Impact</a>
+                <a href="#alabama" class="hover:text-[#ffcc33] transition">Local Hub</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="min-h-[80vh] flex items-center justify-center text-center px-6 pt-32">
+        <div class="max-w-4xl">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 gold-glow">The 2026 Quantum Frontier</h1>
+            <p class="text-xl md:text-2xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                For the systems engineers of tomorrow, quantum isn't science fiction—it's the new standard for defense, medicine, and global logistics.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#about" class="btn-gold">Explore the Tech</a>
+                <a href="#alabama" class="bg-[#ffcc33] text-[#0a192f] px-6 py-3 rounded font-bold hover:bg-yellow-400 transition">Huntsville Hub</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Podcast Section -->
+    <section class="pb-24 px-6">
+        <div class="max-w-3xl mx-auto">
+            <div class="podcast-box p-6 md:p-8 rounded-xl shadow-2xl">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="bg-[#ffcc33] p-3 rounded-full text-[#0a192f]">
+                        <i class="fas fa-podcast text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">Featured Episode</h3>
+                        <p class="text-sm text-[#ffcc33] uppercase tracking-wider">The "Future of Tech" Podcast</p>
+                    </div>
+                </div>
+                <p class="text-slate-300 text-sm mb-6 italic">"Join us as we interview a cybersecurity expert from UAB about Shor's Algorithm and the Alabama tech corridor."</p>
+                <audio controls>
+                    <source src="https://docs.google.com/uc?export=download&id=18jbjnlbR29iqjveXh6CI52DTIBQCYrVZ" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <div class="mt-4 flex justify-between items-center text-[10px] text-slate-500 uppercase tracking-widest">
+                    <span>Recorded at UAB, Birmingham</span>
+                    <span>Duration: ~15 mins</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is Quantum -->
+    <section id="about" class="py-24 px-6 bg-[#0a192f]">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold mb-4 text-[#ffcc33]">What is Quantum Computing?</h2>
+            <div class="gradient-line mb-12"></div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="text-lg text-slate-300 mb-6">
+                        Classical computers use **bits** (0 or 1). Quantum computers use **qubits**, which can exist in a 0, 1, or both simultaneously. 
+                    </p>
+                    <p class="text-lg text-slate-300">
+                        Think of a bit like a coin lying on a table—it’s either Heads or Tails. A qubit is like a coin **spinning on its edge**. While it's spinning, it’s in a "superposition" of both states until you touch it and make it stop.
+                    </p>
+                </div>
+                <div class="card p-8 rounded-xl border-gold/20">
+                    <h3 class="text-xl font-bold mb-4 text-[#ffcc33]"><i class="fas fa-microchip mr-2"></i> Why it Matters in 2026</h3>
+                    <ul class="space-y-4 text-slate-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-[#ffcc33] mt-1 mr-3"></i>
+                            <span><b>Scale:</b> Solves problems in minutes that supercomputers would take millennia to process.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-[#ffcc33] mt-1 mr-3"></i>
+                            <span><b>Efficiency:</b> Uses interference to "cancel out" wrong answers and amplify the correct ones.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Concepts -->
+    <section id="concepts" class="py-24 px-6 bg-[#112240]">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Core Quantum Pillars</h2>
+                <p class="text-slate-400">The engineering fundamentals of the subatomic world.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card p-8 rounded-xl text-center">
+                    <div class="text-4xl text-[#ffcc33] mb-6"><i class="fas fa-layer-group"></i></div>
+                    <h3 class="text-xl font-bold mb-4">Superposition</h3>
+                    <p class="text-slate-400">The ability of a system to be in multiple states at once, allowing a computer to explore every possible solution path simultaneously.</p>
+                </div>
+                <div class="card p-8 rounded-xl text-center">
+                    <div class="text-4xl text-[#ffcc33] mb-6"><i class="fas fa-link"></i></div>
+                    <h3 class="text-xl font-bold mb-4">Entanglement</h3>
+                    <p class="text-slate-400">Particles so deeply connected that the state of one instantly affects the other, regardless of distance. This is the "secret sauce" for secure comms.</p>
+                </div>
+                <div class="card p-8 rounded-xl text-center">
+                    <div class="text-4xl text-[#ffcc33] mb-6"><i class="fas fa-wave-square"></i></div>
+                    <h3 class="text-xl font-bold mb-4">Interference</h3>
+                    <p class="text-slate-400">Using wave-like properties to bias the quantum state toward the correct solution, effectively "muting" the noise of incorrect data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real World Applications -->
+    <section id="applications" class="py-24 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center text-[#ffcc33]">Impact 2026–2035</h2>
+            <div class="space-y-6">
+                <div class="card p-6 rounded-lg flex gap-6 items-center">
+                    <div class="hidden sm:block text-3xl opacity-50"><i class="fas fa-dna"></i></div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">Drug Discovery & Material Science</h4>
+                        <p class="text-slate-400">Simulating molecular bonds at the atomic level to create perfect batteries or life-saving medicines without trial-and-error.</p>
+                    </div>
+                </div>
+                <div class="card p-6 rounded-lg flex gap-6 items-center">
+                    <div class="hidden sm:block text-3xl opacity-50"><i class="fas fa-shield-alt"></i></div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">The "Post-Quantum" Shield</h4>
+                        <p class="text-slate-400">Implementing NIST's 2024 standards to protect global data against Shor's Algorithm attacks.</p>
+                    </div>
+                </div>
+                <div class="card p-6 rounded-lg flex gap-6 items-center">
+                    <div class="hidden sm:block text-3xl opacity-50"><i class="fas fa-truck-moving"></i></div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">Global Supply Chain Perfection</h4>
+                        <p class="text-slate-400">Solving the "Traveling Salesman Problem" for thousands of ships and trucks to minimize fuel and maximize speed.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alabama Section -->
+    <section id="alabama" class="py-24 px-6 bg-gradient-to-b from-[#112240] to-[#0a192f]">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="text-4xl font-bold mb-6">The <span class="text-[#ffcc33]">Alabama</span> Advantage</h2>
+                    <p class="text-lg text-slate-300 mb-6">
+                        Huntsville is no longer just "Rocket City"—it's the **Quantum Defense Capital**. With Redstone Arsenal and UAH leading the way, Alabama is at the epicenter of national security research.
+                    </p>
+                    <div class="space-y-4 text-sm uppercase tracking-widest text-[#ffcc33]">
+                        <p><i class="fas fa-university mr-2"></i> UAH: Southeastern Quantum Collaborative (SQC)</p>
+                        <p><i class="fas fa-fighter-jet mr-2"></i> Davidson Technologies: D-Wave Hardware</p>
+                        <p><i class="fas fa-shield-virus mr-2"></i> MTSI: Systems Engineering Hub</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2 grid grid-cols-2 gap-4">
+                    <div class="card p-4 rounded text-center">
+                        <span class="text-2xl font-bold text-[#ffcc33]">Redstone</span>
+                        <p class="text-xs text-slate-400 mt-2">Army Futures Command</p>
+                    </div>
+                    <div class="card p-4 rounded text-center">
+                        <span class="text-2xl font-bold text-[#ffcc33]">Auburn</span>
+                        <p class="text-xs text-slate-400 mt-2">Quantum Materials</p>
+                    </div>
+                    <div class="card p-4 rounded text-center">
+                        <span class="text-2xl font-bold text-[#ffcc33]">UA</span>
+                        <p class="text-xs text-slate-400 mt-2">Precision Physics</p>
+                    </div>
+                    <div class="card p-4 rounded text-center">
+                        <span class="text-2xl font-bold text-[#ffcc33]">Boeing</span>
+                        <p class="text-xs text-slate-400 mt-2">Quantum R&D</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="py-24 px-6 border-t border-white/5">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-12">Level Up Your Skills</h2>
+            <div class="grid sm:grid-cols-2 gap-6">
+                <a href="#" class="card p-6 rounded-lg block hover:no-underline">
+                    <h5 class="font-bold text-[#ffcc33] mb-2">IBM Quantum Composer</h5>
+                    <p class="text-sm text-slate-400">Build circuits in your browser and run them on real chips.</p>
+                </a>
+                <a href="#" class="card p-6 rounded-lg block hover:no-underline">
+                    <h5 class="font-bold text-[#ffcc33] mb-2">UAH SQC Programs</h5>
+                    <p class="text-sm text-slate-400">Explore undergraduate pathways in the Southeast Hub.</p>
+                </a>
+                <a href="#" class="card p-6 rounded-lg block hover:no-underline">
+                    <h5 class="font-bold text-[#ffcc33] mb-2">Qiskit Learning</h5>
+                    <p class="text-sm text-slate-400">The industry-standard open-source library for Python.</p>
+                </a>
+                <a href="#" class="card p-6 rounded-lg block hover:no-underline">
+                    <h5 class="font-bold text-[#ffcc33] mb-2">NIST PQC Updates</h5>
+                    <p class="text-sm text-slate-400">Stay current with the 2024 security standards.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 text-center text-slate-500 text-sm border-t border-white/5">
+        <p>&copy; 2026 Quantum Alabama Educational Initiative. All rights reserved.</p>
+        <p class="mt-2">Systems Engineering | Physics | Computer Science</p>
+    </footer>
+
+</body>
+</html>

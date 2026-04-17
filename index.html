@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantum Alabama | Future of Systems Engineering</title>
+    <title>Quantum Alabama | The 2026 Frontier</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -12,26 +12,28 @@
             --light-navy: #112240;
             --gold: #ffcc33;
             --white: #e6f1ff;
+            --accent-blue: #64ffda;
         }
         body {
             background-color: var(--navy);
             color: var(--white);
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
-        .gold-glow {
-            text-shadow: 0 0 10px rgba(255, 204, 51, 0.5);
-        }
+        .gold-glow { text-shadow: 0 0 15px rgba(255, 204, 51, 0.6); }
+        
         .card {
             background-color: var(--light-navy);
             border: 1px solid rgba(255, 204, 51, 0.1);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .card:hover {
             border-color: var(--gold);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px -15px rgba(255, 204, 51, 0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -15px rgba(255, 204, 51, 0.2);
         }
+
         .btn-gold {
             background-color: transparent;
             border: 1px solid var(--gold);
@@ -42,40 +44,60 @@
         }
         .btn-gold:hover {
             background-color: rgba(255, 204, 51, 0.1);
-            box-shadow: 0 0 15px rgba(255, 204, 51, 0.2);
+            box-shadow: 0 0 20px rgba(255, 204, 51, 0.3);
         }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 0.5; }
+        }
+        .qubit-pulse {
+            animation: pulse 4s infinite ease-in-out;
+        }
+
         .gradient-line {
             height: 2px;
             background: linear-gradient(90deg, transparent, var(--gold), transparent);
         }
-        .podcast-box {
-            background: rgba(17, 34, 64, 0.6);
-            backdrop-filter: blur(10px);
-            border-left: 4px solid var(--gold);
-        }
-        .iframe-container {
-            position: relative;
+
+        .podcast-compact {
+            background: linear-gradient(135deg, rgba(17, 34, 64, 0.9), rgba(10, 25, 47, 1));
+            border: 1px solid rgba(255, 204, 51, 0.2);
+            border-radius: 20px;
             overflow: hidden;
-            width: 100%;
-            padding-top: 56.25%; 
-            border-radius: 8px;
+        }
+        .podcast-iframe-wrap, .video-iframe-wrap {
+            border-radius: 12px;
+            overflow: hidden;
             background: #000;
+            position: relative;
         }
-        .iframe-container iframe {
+        .podcast-iframe-wrap { height: 180px; }
+        .video-iframe-wrap { padding-top: 56.25%; height: 0; }
+        .video-iframe-wrap iframe {
             position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
         }
-        .svg-container {
-            filter: drop-shadow(0 0 10px rgba(255, 204, 51, 0.3));
+
+        .bg-grid {
+            background-image: radial-gradient(rgba(100, 255, 218, 0.03) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+
+        .tech-tag {
+            background: rgba(255, 204, 51, 0.1);
+            color: var(--gold);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
         }
     </style>
 </head>
-<body class="leading-relaxed">
+<body class="leading-relaxed bg-grid">
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-[#0a192f]/90 backdrop-blur-md border-b border-white/10">
@@ -92,14 +114,15 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="min-h-[70vh] flex items-center justify-center text-center px-6 pt-32">
+    <!-- Hero Section (Adjusted height and padding to ensure plenty of space) -->
+    <header class="min-h-[80vh] flex flex-col items-center justify-center text-center px-6 pt-48 pb-32">
         <div class="max-w-4xl">
+            <div class="tech-tag mb-4 inline-block">State of the Art 2026</div>
             <h1 class="text-5xl md:text-7xl font-bold mb-6 gold-glow">The 2026 Quantum Frontier</h1>
             <p class="text-xl md:text-2xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
                 For the systems engineers of tomorrow, quantum isn't science fiction—it's the new standard for defense, medicine, and global logistics.
             </p>
-            <div class="flex flex-col md:flex-row justify-center gap-4">
+            <div class="flex flex-col md:flex-row justify-center gap-6">
                 <a href="#about" class="btn-gold">Explore the Tech</a>
                 <a href="#alabama" class="bg-[#ffcc33] text-[#0a192f] px-6 py-3 rounded font-bold hover:bg-yellow-400 transition">Huntsville Hub</a>
             </div>
@@ -107,32 +130,51 @@
     </header>
 
     <!-- Podcast Section -->
-    <section class="pb-24 px-6">
-        <div class="max-w-3xl mx-auto">
-            <div class="podcast-box p-6 md:p-8 rounded-xl shadow-2xl">
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="bg-[#ffcc33] p-3 rounded-full text-[#0a192f]">
-                        <i class="fas fa-podcast text-xl"></i>
+    <section class="py-16 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="podcast-compact p-1 shadow-2xl">
+                <div class="flex flex-col md:flex-row">
+                    <div class="p-8 md:w-1/2 flex flex-col justify-center">
+                        <div class="flex items-center gap-2 mb-4">
+                            <i class="fas fa-podcast text-[#ffcc33] animate-pulse"></i>
+                            <span class="text-[#ffcc33] text-xs font-mono tracking-widest uppercase">Featured Audio</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">The Future of Tech</h3>
+                        <p class="text-slate-400 text-sm mb-6 leading-snug">
+                            Recorded for Quantum Alabama: A spotlight interview on systems engineering and the local quantum landscape.
+                        </p>
+                        <div class="flex gap-4">
+                            <span class="text-[10px] text-slate-500 border border-white/10 px-2 py-1 rounded">2026 BROADCAST</span>
+                            <span class="text-[10px] text-slate-500 border border-white/10 px-2 py-1 rounded">ALABAMA HUB</span>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white">Featured Audio</h3>
-                        <p class="text-sm text-[#ffcc33] uppercase tracking-wider">The "Future of Tech" Interview</p>
+                    <div class="md:w-1/2 p-4">
+                        <div class="podcast-iframe-wrap shadow-inner">
+                            <iframe src="https://drive.google.com/file/d/18jbjnlbR29iqjveXh6CI52DTIBQCYrVZ/preview" width="100%" height="180" allow="autoplay" style="border:none;"></iframe>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="iframe-container mb-4">
-                    <iframe src="https://drive.google.com/file/d/18jbjnlbR29iqjveXh6CI52DTIBQCYrVZ/preview" allow="autoplay"></iframe>
-                </div>
-
-                <div class="flex justify-between items-center text-[10px] text-slate-500 uppercase tracking-widest">
-                    <span>Recorded for Quantum Alabama</span>
-                    <span>Systems Engineering Spotlight</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- What is Quantum Computing -->
+    <!-- YouTube Video Section -->
+    <section class="py-12 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="card p-4 rounded-2xl overflow-hidden shadow-2xl border-white/5">
+                <div class="flex items-center gap-2 mb-4 px-2">
+                    <i class="fab fa-youtube text-red-500"></i>
+                    <span class="text-xs font-mono tracking-widest uppercase text-slate-400">Deep Dive: Quantum Explained</span>
+                </div>
+                <div class="video-iframe-wrap">
+                    <!-- Corrected Embed URL for the provided YouTube ID -->
+                    <iframe src="https://www.youtube.com/embed/lqWSziZJsLs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Original Content: What is Quantum Computing -->
     <section id="about" class="py-24 px-6 bg-[#0a192f]">
         <div class="max-w-5xl mx-auto">
             <h2 class="text-3xl font-bold mb-4 text-[#ffcc33]">What is Quantum Computing?</h2>
@@ -145,18 +187,22 @@
                     <p class="text-lg text-slate-300 mb-6">
                         This allows for parallel processing power that scales exponentially, enabling us to solve problems in seconds that would take current supercomputers thousands of years.
                     </p>
-                    <!-- SVG Graphic: Bloch Sphere representation -->
-                    <div class="svg-container mt-8 flex justify-center">
-                        <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    
+                    <div class="svg-container mt-8 flex justify-center qubit-pulse">
+                        <svg width="240" height="240" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="100" cy="100" r="80" stroke="#ffcc33" stroke-width="2" stroke-dasharray="4 4"/>
-                            <ellipse cx="100" cy="100" rx="80" ry="25" stroke="#ffcc33" stroke-width="1" opacity="0.5"/>
+                            <ellipse cx="100" cy="100" rx="80" ry="25" stroke="#ffcc33" stroke-width="1" opacity="0.3"/>
                             <line x1="100" y1="20" x2="100" y2="180" stroke="#ffcc33" stroke-width="2"/>
                             <circle cx="100" cy="20" r="4" fill="#ffcc33"/>
-                            <text x="105" y="15" fill="#ffcc33" font-size="12">|0⟩</text>
+                            <text x="105" y="15" fill="#ffcc33" font-size="12" font-family="monospace">|0⟩</text>
                             <circle cx="100" cy="180" r="4" fill="#ffcc33"/>
-                            <text x="105" y="195" fill="#ffcc33" font-size="12">|1⟩</text>
-                            <line x1="100" y1="100" x2="160" y2="60" stroke="#e6f1ff" stroke-width="3"/>
-                            <circle cx="160" cy="60" r="5" fill="#e6f1ff"/>
+                            <text x="105" y="195" fill="#ffcc33" font-size="12" font-family="monospace">|1⟩</text>
+                            <line x1="100" y1="100" x2="160" y2="60" stroke="#64ffda" stroke-width="3">
+                                <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="12s" repeatCount="indefinite" />
+                            </line>
+                            <circle cx="160" cy="60" r="5" fill="#64ffda">
+                                <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="12s" repeatCount="indefinite" />
+                            </circle>
                         </svg>
                     </div>
                 </div>
@@ -171,13 +217,17 @@
                             <i class="fas fa-check-circle text-[#ffcc33] mt-1 mr-3"></i>
                             <span><strong>Security:</strong> Modern cryptography will need to be rebuilt to be quantum-resistant.</span>
                         </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-[#ffcc33] mt-1 mr-3"></i>
+                            <span><strong>Physical Limits:</strong> Overcoming classical "tunneling" where electrons leak through tiny transistors.</span>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Key Concepts -->
+    <!-- Original Content: Core Quantum Pillars -->
     <section id="concepts" class="py-24 px-6 bg-[#112240]">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
@@ -197,17 +247,53 @@
                 </div>
                 <div class="card p-8 rounded-xl text-center">
                     <div class="text-4xl text-[#ffcc33] mb-6"><i class="fas fa-random"></i></div>
-                    <h3 class="text-xl font-bold mb-4">Probability</h3>
-                    <p class="text-slate-400">Unlike classical certainty, quantum systems operate on the probability of a state upon measurement.</p>
+                    <h3 class="text-xl font-bold mb-4">Interference</h3>
+                    <p class="text-slate-400">Using mathematical waves to cancel out wrong answers (destructive) and amplify the correct one (constructive).</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Real World Applications -->
+    <!-- Algorithm & Application Depth (Including Shor's Algorithm) -->
+    <section class="py-24 px-6 bg-[#0c1d36]">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">The Quantum Advantage</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card p-8 rounded-2xl">
+                    <div class="flex items-center gap-4 mb-6">
+                        <i class="fas fa-leaf text-green-400 text-2xl"></i>
+                        <h3 class="text-xl font-bold">Nitrogen Fixation</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm">
+                        Quantum computers can simulate soil bacteria molecules 1-to-1. This solves the Haber-Bosch energy crisis, which currently consumes 2% of global energy.
+                    </p>
+                </div>
+                <div class="card p-8 rounded-2xl">
+                    <div class="flex items-center gap-4 mb-6">
+                        <i class="fas fa-key text-[#ffcc33] text-2xl"></i>
+                        <h3 class="text-xl font-bold">Shor's Algorithm</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm">
+                        The ultimate challenge to modern security. Shor's algorithm can factor large integers exponentially faster than classical computers, effectively breaking standard RSA encryption.
+                    </p>
+                </div>
+                <div class="card p-8 rounded-2xl">
+                    <div class="flex items-center gap-4 mb-6">
+                        <i class="fas fa-wave-square text-[#64ffda] text-2xl"></i>
+                        <h3 class="text-xl font-bold">Quantum Echoes</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm">
+                        An algorithm for measuring molecular geometry with extreme precision, accelerating the creation of new battery components and drug discovery.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Original Content: Real World Applications -->
     <section id="applications" class="py-24 px-6">
         <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 text-center text-[#ffcc33]">Real-World Applications</h2>
+            <h2 class="text-3xl font-bold mb-12 text-center text-[#ffcc33]">Global Impact</h2>
             <div class="space-y-6">
                 <div class="card p-6 rounded-lg flex gap-6 items-center">
                     <div class="hidden sm:block text-3xl opacity-50"><i class="fas fa-flask"></i></div>
@@ -220,7 +306,7 @@
                     <div class="hidden sm:block text-3xl opacity-50"><i class="fas fa-user-shield"></i></div>
                     <div>
                         <h4 class="text-xl font-bold mb-2">Secure Communications</h4>
-                        <p class="text-slate-400">Creating unhackable networks using Quantum Key Distribution (QKD).</p>
+                        <p class="text-slate-400">Creating unhackable networks using Quantum Key Distribution (QKD) and NIST-approved encryption standards.</p>
                     </div>
                 </div>
                 <div class="card p-6 rounded-lg flex gap-6 items-center">
@@ -234,7 +320,7 @@
         </div>
     </section>
 
-    <!-- Alabama Section -->
+    <!-- Original Content: Alabama Section -->
     <section id="alabama" class="py-24 px-6 bg-gradient-to-b from-[#112240] to-[#0a192f]">
         <div class="max-w-5xl mx-auto">
             <div class="flex flex-col md:flex-row items-center gap-12">
@@ -244,9 +330,9 @@
                         Huntsville is a global leader in quantum research. From the <strong>U.S. Army Futures Command</strong> at Redstone Arsenal to the labs at <strong>UAH</strong>, our state is building the future.
                     </p>
                     <div class="space-y-4 text-sm uppercase tracking-widest text-[#ffcc33]">
-                        <p><i class="fas fa-university mr-2"></i> UAH: Quantum Photonics Programs</p>
-                        <p><i class="fas fa-satellite mr-2"></i> Redstone Arsenal: Quantum Sensing</p>
-                        <p><i class="fas fa-building mr-2"></i> Davidson Technologies: Quantum R&D</p>
+                        <p><i class="fas fa-university mr-2"></i> UAH: Quantum Photonics & Southeast Collaborative</p>
+                        <p><i class="fas fa-satellite mr-2"></i> Redstone Arsenal: Quantum Sensing Hub</p>
+                        <p><i class="fas fa-graduation-cap mr-2"></i> UA: ACCEPT Program & Metrology</p>
                     </div>
                 </div>
                 <div class="md:w-1/2 grid grid-cols-2 gap-4">
@@ -263,15 +349,15 @@
                         <p class="text-xs text-slate-400 mt-2">Information Physics</p>
                     </div>
                     <div class="card p-4 rounded text-center">
-                        <span class="text-xl font-bold text-[#ffcc33]">NASA</span>
-                        <p class="text-xs text-slate-400 mt-2">Marshall Space Flight</p>
+                        <span class="text-xl font-bold text-[#ffcc33]">Boeing</span>
+                        <p class="text-xs text-slate-400 mt-2">Space & Defense R&D</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Resources Section -->
+    <!-- Original Content: Resources Section -->
     <section class="py-24 px-6 border-t border-white/5">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-3xl font-bold mb-12">Level Up Your Skills</h2>
